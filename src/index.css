@@ -1,4 +1,15 @@
 header {
   justify-content: center;
+  text-align: center;
   border: solid black;
+  top: 0;
+}
+
+footer {
+  justify-content: center;
+  text-align: center;
+  border: solid black;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
