@@ -1,9 +1,11 @@
 import "./App.css";
+import Header from "./components/header"
 
 function App() {
   return (
     <>
-      <h1>{import.meta.local.env.VITE_COOL_TEST}</h1>
+      <Header />
+      <h1>{import.meta.env.VITE_COOL_TEST}</h1>
     </>
   );
 }
