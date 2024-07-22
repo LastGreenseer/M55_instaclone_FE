@@ -1,9 +1,16 @@
 import "./App.css";
+import Header from "./components/header"
+import Footer from "./components/footer";
+import ImageContainer from "./components/imageContainer";
 
 function App() {
   return (
     <>
-      <h1>{import.meta.local.env.VITE_COOL_TEST}</h1>
+      <Header />
+      <h1>{import.meta.env.VITE_COOL_TEST}</h1>
+      
+      <ImageContainer />
+      <Footer />
     </>
   );
 }
