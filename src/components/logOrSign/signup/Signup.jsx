@@ -2,30 +2,35 @@ import React, { useState } from "react";
 import { registerUser } from "../../../utils/fetch";
 import "./Signup.css";
 
-const Signup = ({ handleChange, handleSubmit, logOrSignSetters }) => {
+const Signup = ({ handleChange, setShowSignup  }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleSubmit = async (e, registerUser, username, email, password) => {
+    e.preventDefault();
+    try {
+      const response = await registerUser(username, email, password);
+      console.log("Success", response);
+      setShowSignup(false);
+    } catch (error) {
+      console.error("Error sighing up", error);
+    }
+  };
+
   return (
     <div className="flex flex-column signup">
       <form
-        onSubmit={(e) =>
-          handleSubmit(
-            e,
-            registerUser,
-            logOrSignSetters,
-            username,
-            email,
-            password
-          )
-        }
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit(e, registerUser, username, email, password);
+        }}
         className="flex flex-column signup"
       >
         <h3>Signup</h3>
         <div>
           <input
-            onChange={(e) => handleChange(e, setUsername)}
+            onChange={(e) => handleChange(e, setUsername, username)}
             type="text"
             placeholder="Username..."
             value={username}
@@ -46,7 +51,7 @@ const Signup = ({ handleChange, handleSubmit, logOrSignSetters }) => {
             required
           />
         </div>
-        <button>Signup</button>
+        <button type="submit">Signup</button>
       </form>
     </div>
   );
