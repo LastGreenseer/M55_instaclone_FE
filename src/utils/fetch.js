@@ -9,7 +9,7 @@ const handleResponse = async (response) => {
 };
 
 export const registerUser = async (username, email, password) => {
-  const response = await fetch(`${API_URL}/register`, {
+  const response = await fetch(`${API_URL}/user/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
