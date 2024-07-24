@@ -5,10 +5,13 @@ const handleResponse = async (response) => {
     const error = await response.json();
     throw new Error(error.message || "Something went wrong");
   }
-  return response.json();
+
+ const data =  response.json();
+ return data
 };
 
 export const registerUser = async (username, email, password) => {
+  console.log ("hello register user")
   const response = await fetch(`${API_URL}/user/register`, {
     method: "POST",
     headers: {
@@ -16,5 +19,7 @@ export const registerUser = async (username, email, password) => {
     },
     body: JSON.stringify({ username, email, password }),
   });
-  return handleResponse(response);
+  const data = await handleResponse(response);
+  console.log(data)
+  return data
 };

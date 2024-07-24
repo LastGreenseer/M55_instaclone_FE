@@ -9,20 +9,12 @@ import { registerUser } from "./utils/fetch";
 function App() {
   const [showSignup, setShowSignup] = useState(false);
 
-  const handleChange = (e, setter) => {
+  const handleChange = (e, setter, state) => {
     setter(e.target.value);
+    console.log(state);
   };
 
-  const handleSubmit = async (e, registerUser, username, email, password) => {
-    e.preventDefault();
-    try {
-      const responsr = await registerUser(username, email, password);
-      console.log("Success", response);
-      setShowSignup(false);
-    } catch (error) {
-      console.error("Error sighing up", error);
-    }
-  };
+  
 
   return (
     <>
@@ -30,7 +22,7 @@ function App() {
       <h1>{import.meta.env.VITE_COOL_TEST}</h1>
 
       {showSignup ? (
-        <Signup handleChange={handleChange} handleSubmit={handleSubmit} />
+        <Signup handleChange={handleChange} setShowSignup={setShowSignup} />
       ) : (
         <ImageContainer />
       )}
