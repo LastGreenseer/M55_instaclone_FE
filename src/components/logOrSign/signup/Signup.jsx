@@ -10,7 +10,8 @@ const Signup = ({ handleChange, handleSubmit, logOrSignSetters }) => {
   return (
     <div className="flex flex-column signup">
       <form
-        onSubmit={(e) =>
+        onSubmit={(e) => {
+          e.preventDefault();
           handleSubmit(
             e,
             registerUser,
@@ -18,8 +19,8 @@ const Signup = ({ handleChange, handleSubmit, logOrSignSetters }) => {
             username,
             email,
             password
-          )
-        }
+          );
+        }}
         className="flex flex-column signup"
       >
         <h3>Signup</h3>
@@ -46,7 +47,7 @@ const Signup = ({ handleChange, handleSubmit, logOrSignSetters }) => {
             required
           />
         </div>
-        <button>Signup</button>
+        <button type="submit">Signup</button>
       </form>
     </div>
   );
