@@ -19,13 +19,13 @@ const Signup = ({ handleChange, setShowSignup  }) => {
   };
 
   return (
-    <div className="flex flex-column signup">
+    <div className="flex signup">
       <form
         onSubmit={(e) => {
           e.preventDefault();
           handleSubmit(e, registerUser, username, email, password);
         }}
-        className="flex flex-column signup"
+        className="flex signup"
       >
         <h3>Signup</h3>
         <div>
