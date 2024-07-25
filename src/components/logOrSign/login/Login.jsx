@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { login } from "../../../utils/fetch";
 import "./Login.css";
 
-const Login = ({ handleChange, setShowLogin }) => {
+const Login = ({ handleChange, setShowLogin, setIsLoggedIn }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,6 +11,7 @@ const Login = ({ handleChange, setShowLogin }) => {
     try {
       const response = await login(username, password);
       console.log("Success", response);
+      setIsLoggedIn(true);
       setShowLogin(false);
     } catch (error) {
       console.log("Error logging in", error);
@@ -43,4 +44,4 @@ const Login = ({ handleChange, setShowLogin }) => {
   );
 };
 
-export default Login
+export default Login;
