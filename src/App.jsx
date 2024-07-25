@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Header from "./components/header";
 import Footer from "./components/footer";
-import ImageContainer from "./components/imageContainer";
+import ImageContainer from "./components/ImageConainer/imageContainer";
 import Signup from "./components/logOrSign/signup/Signup";
 import Login from "./components/logOrSign/login/Login";
 import "./App.css";
