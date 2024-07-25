@@ -8,7 +8,7 @@ export const fetchPhotos = async () => {
     },
   });
 
-  if (!response.ok) {
+  if (!res.ok) {
     const error = await res.json();
     throw new Error(error.message || "Error");
   }

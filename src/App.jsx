@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/header";
 import Footer from "./components/footer";
 import ImageContainer from "./components/imageContainer";
@@ -16,6 +16,21 @@ function App() {
   const handleChange = (e, setter) => {
     setter(e.target.value);
   };
+
+  const displayPhotos = async () => {
+    try {
+      const photosData = await fetchPhotos();
+      setPhotos(photosData);
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      displayPhotos();
+    }
+  }, [isLoggedIn]);
 
   return (
     <>
@@ -36,7 +51,7 @@ function App() {
           setIsLoggedIn={setIsLoggedIn}
         />
       )}
-      <ImageContainer />
+      {isLoggedIn && <ImageContainer photos={photos} />}
 
       <Footer />
     </>
