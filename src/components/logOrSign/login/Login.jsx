@@ -11,6 +11,7 @@ const Login = ({ handleChange, setShowLogin, setIsLoggedIn }) => {
     try {
       const response = await login(username, password);
       console.log("Success", response);
+
       setIsLoggedIn(true);
       setShowLogin(false);
     } catch (error) {
@@ -19,8 +20,8 @@ const Login = ({ handleChange, setShowLogin, setIsLoggedIn }) => {
   };
 
   return (
-    <div className="flex login">
-      <form onSubmit={handleLoginSubmit} className="flex login">
+    <div className="flexLogin">
+      <form onSubmit={handleLoginSubmit} className="flexLogin">
         <h3>Log In</h3>
         <div>
           <input

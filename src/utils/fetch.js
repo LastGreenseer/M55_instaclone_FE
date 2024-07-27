@@ -1,12 +1,15 @@
 const API_URL = "http://localhost:5001";
 
+const getAuthToken = () => localStorage.getItem("jwt")
+
 const handleResponse = async (response) => {
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.message || "Something went wrong");
   }
 
-  return response.json()
+  const data = await response.json()
+  return data
 };
 
 export const registerUser = async (username, email, password) => {
@@ -33,11 +36,8 @@ export const login = async (username, password) => {
       body: JSON.stringify({ username, password }),
     });
 
-    if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.message || "Error logging in")
-    }
-
-    return response.json()
+    const data = await handleResponse(response);
+    localStorage.setItem("jwt", data.token)
+    return data
   }
 
