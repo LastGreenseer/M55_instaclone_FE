@@ -1,5 +1,7 @@
 const API_URL = "http://localhost:5001";
 
+const getAuthToken = () => localStorage.getItem("jwt")
+
 const handleResponse = async (response) => {
   if (!response.ok) {
     const error = await response.json();
