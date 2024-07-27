@@ -1,3 +1,9 @@
+body {
+  background: linear-gradient(to top, #88007d, #ff5e00);
+  margin: 0;
+  height: 100vh;
+}
+
 header {
   justify-content: center;
   text-align: center;

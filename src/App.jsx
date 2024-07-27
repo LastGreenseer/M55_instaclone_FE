@@ -4,7 +4,7 @@ import Footer from "./components/footer";
 import ImageContainer from "./components/ImageConainer/imageContainer";
 import Signup from "./components/logOrSign/signup/Signup";
 import Login from "./components/logOrSign/login/Login";
-import "./App.css";
+import "./index.css";
 import { fetchPhotos } from "./utils/unsplashFetch";
 
 function App() {
