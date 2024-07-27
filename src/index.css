@@ -5,10 +5,13 @@ body {
 }
 
 header {
+  position: absolute;
   justify-content: center;
   text-align: center;
   border: solid black;
-  top: 0;
+  height: 500px;
+  top: 50px;
+  right: 20px;
 }
 
 footer {
