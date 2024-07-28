@@ -1,9 +1,10 @@
 import React from "react";
+import "./footer.css"
 
 const Footer = () => {
   return (
     <footer>
-      <p>property of Ryan</p>
+      <p>M55-Week-10 Intagram Clone</p>
     </footer>
   );
 };

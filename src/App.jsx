@@ -4,7 +4,7 @@ import Footer from "./components/footer";
 import ImageContainer from "./components/ImageConainer/imageContainer";
 import Signup from "./components/logOrSign/signup/Signup";
 import Login from "./components/logOrSign/login/Login";
-import "./App.css";
+import "./index.css";
 import { fetchPhotos } from "./utils/unsplashFetch";
 
 function App() {
@@ -34,25 +34,23 @@ function App() {
 
   return (
     <>
-      <Header
-        setShowSignup={setShowSignup}
-        setShowLogin={setShowLogin}
-        isLoggedIn={isLoggedIn}
-      />
-      <h1>{import.meta.env.VITE_COOL_TEST}</h1>
-
-      {showSignup && (
-        <Signup handleChange={handleChange} setShowSignup={setShowSignup} />
-      )}
-      {showLogin && (
-        <Login
-          handleChange={handleChange}
+        <Header
+          setShowSignup={setShowSignup}
           setShowLogin={setShowLogin}
-          setIsLoggedIn={setIsLoggedIn}
+          isLoggedIn={isLoggedIn}
         />
-      )}
-      {isLoggedIn && <ImageContainer photos={photos} />}
 
+        {showSignup && (
+          <Signup handleChange={handleChange} setShowSignup={setShowSignup} />
+        )}
+        {showLogin && (
+          <Login
+            handleChange={handleChange}
+            setShowLogin={setShowLogin}
+            setIsLoggedIn={setIsLoggedIn}
+          />
+        )}
+        {isLoggedIn && <ImageContainer photos={photos} />}
       <Footer />
     </>
   );
