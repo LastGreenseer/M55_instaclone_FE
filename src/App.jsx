@@ -39,7 +39,6 @@ function App() {
           setShowLogin={setShowLogin}
           isLoggedIn={isLoggedIn}
         />
-        <h1>{import.meta.env.VITE_COOL_TEST}</h1>
 
         {showSignup && (
           <Signup handleChange={handleChange} setShowSignup={setShowSignup} />
